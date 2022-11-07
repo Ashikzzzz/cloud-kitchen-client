@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import logo from "../../assets/image/4.png";
+import logo from "../../assets/image/logo-1.png";
 import { Image } from "react-bootstrap";
 
 const Header = () => {
@@ -13,7 +13,11 @@ const Header = () => {
       <Navbar className="H-main" collapseOnSelect expand="lg" bg="" variant="">
         <Container>
           <Navbar.Brand href="#home">
-            <Image className="logo-I" alt=""></Image>
+            <Image to="/" className="logo-I" src={logo} alt=""></Image>
+            <Link className="style-H" to="/">
+              {" "}
+              AshikzZZ Kitchen
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
