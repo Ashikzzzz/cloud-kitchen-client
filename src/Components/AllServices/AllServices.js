@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import "./AllServices.css";
 
 const AllServices = () => {
@@ -26,7 +27,10 @@ const AllServices = () => {
                   <Card.Title>Price: ${service.price}</Card.Title>
                   <Card.Title>Rating:{service.rating}</Card.Title>
                   <Card.Text>{service.about.slice(0, 80) + "..."}</Card.Text>
-                  <Button variant="primary">Detail</Button>
+                  <Link to={`/servicedetail/${service._id}`}>
+                    {" "}
+                    <Button variant="primary">View Detail</Button>
+                  </Link>
                 </Card.Body>
               </Card>
             );
