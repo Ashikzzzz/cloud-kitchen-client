@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/image/logo-1.png";
-import { Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div>
       <Navbar className="H-main" collapseOnSelect expand="lg" bg="" variant="">
@@ -25,14 +35,37 @@ const Header = () => {
               <Link className="style-H " href="#features">
                 My Review
               </Link>
-              <Link className="style-H" href="#pricing">
+              <Link className="style-H" to="/addservice">
                 Add Service
               </Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
+              {user?.uid ? (
+                <Button onClick={handleSignOut} variant="secondary" size="sm">
+                  Log Out
+                </Button>
+              ) : (
+                <>
+                  <Link className="style-H" to="/login">
+                    Login
+                  </Link>
+                  <Link className="style-H" to="/register">
+                    Register
+                  </Link>
+                </>
+              )}
+
+              <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
-                Dank memes
+                {user?.photoURL ? (
+                  <Image
+                    roundedCircle
+                    style={{ height: "50px" }}
+                    src={user?.photoURL}
+                  ></Image>
+                ) : (
+                  <FaUser></FaUser>
+                )}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

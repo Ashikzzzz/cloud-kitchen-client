@@ -26,7 +26,7 @@ const AllServices = () => {
                   <Card.Title>{service.name}</Card.Title>
                   <Card.Title>Price: ${service.price}</Card.Title>
                   <Card.Title>Rating:{service.rating}</Card.Title>
-                  <Card.Text>{service.about.slice(0, 80) + "..."}</Card.Text>
+                  <Card.Text>{service?.about?.slice(0, 80) + "..."}</Card.Text>
                   <Link to={`/servicedetail/${service._id}`}>
                     {" "}
                     <Button variant="primary">View Detail</Button>
