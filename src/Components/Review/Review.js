@@ -1,5 +1,6 @@
 import React from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Review = () => {
   const handleReview = (event) => {
@@ -25,10 +26,12 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
+    form.reset();
   };
 
   return (
     <div>
+      <h1 className="mt-2">Add Your Experience</h1>
       <Form onSubmit={handleReview} className="w-50 mx-auto mt-5">
         <Form.Label htmlFor="inputPassword5">Your Name</Form.Label>
         <Form.Control
@@ -61,6 +64,14 @@ const Review = () => {
           />
         </FloatingLabel>
         <input className="btn btn-dark mt-3" type="submit" value="Submit" />
+        <Link to="/allreview">
+          {" "}
+          <input
+            className="btn btn-dark mt-3"
+            type="submit"
+            value="See Review"
+          />
+        </Link>
       </Form>
     </div>
   );
