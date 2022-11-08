@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, FloatingLabel } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddService = () => {
   const handleSubmitOrder = (event) => {
@@ -26,7 +27,10 @@ const AddService = () => {
       body: JSON.stringify(order),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+    toast.success("Your service is Added");
+    form.reset();
   };
 
   return (
@@ -65,8 +69,9 @@ const AddService = () => {
         <input
           className="btn btn-dark mt-3"
           type="submit"
-          value="Place Order"
+          value="Add to Service"
         />
+        <ToastContainer />
       </Form>
     </div>
   );
