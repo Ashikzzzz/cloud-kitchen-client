@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Card, Container, Image } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -8,6 +9,7 @@ import "./MyReview.css";
 const MyReview = () => {
   const { user } = useContext(AuthContext);
   const [myReviews, setmyReviews] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/reviewsemail?email=${user?.email}`)
@@ -34,6 +36,9 @@ const MyReview = () => {
         });
     }
   };
+
+  // handle edit
+  const handleEdit = (id) => {};
 
   return (
     <div>
@@ -63,7 +68,14 @@ const MyReview = () => {
                       Delete
                     </Button>
                     <ToastContainer />
-                    <Button className="btn btn-dark">Edit Review</Button>
+                    <Link to={`/update/${myReview._id}`}>
+                      <Button
+                        onClick={() => handleEdit(myReview._id)}
+                        className="btn btn-dark"
+                      >
+                        Edit Review
+                      </Button>
+                    </Link>
                   </div>
                 </Card>
               </Container>

@@ -7,6 +7,8 @@ import Login from "../../Components/Login/Login";
 import MyReview from "../../Components/MyReview/MyReview";
 import Register from "../../Components/Register/Register";
 import ServiceDetail from "../../Components/ServiceDetail/ServiceDetail";
+import Update from "../../Components/Update/Update";
+
 import Main from "../../Layout/Main";
 
 const router = createBrowserRouter([
@@ -43,6 +45,12 @@ const router = createBrowserRouter([
       {
         path: "/allreview",
         element: <AllReview></AllReview>,
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/reviewsemail/${params.id}`),
       },
       {
         path: "/myreview",
