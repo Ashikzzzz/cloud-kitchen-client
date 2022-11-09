@@ -32,7 +32,7 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto ">
-              <Link className="style-H " href="#features">
+              <Link className="style-H " to="/myreview">
                 My Review
               </Link>
               <Link className="style-H" to="/addservice">
@@ -57,7 +57,7 @@ const Header = () => {
 
               <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
               <Nav.Link eventKey={2} href="#memes">
-                {user?.photoURL ? (
+                {user?.photoURL || user?.uid ? (
                   <Image
                     roundedCircle
                     style={{ height: "40px" }}

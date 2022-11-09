@@ -4,6 +4,7 @@ import AllReview from "../../Components/AllReview/AllReview";
 import AllServices from "../../Components/AllServices/AllServices";
 import Home from "../../Components/Home/Home";
 import Login from "../../Components/Login/Login";
+import MyReview from "../../Components/MyReview/MyReview";
 import Register from "../../Components/Register/Register";
 import ServiceDetail from "../../Components/ServiceDetail/ServiceDetail";
 import Main from "../../Layout/Main";
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/allreview",
         element: <AllReview></AllReview>,
+      },
+      {
+        path: "/myreview",
+        element: <MyReview></MyReview>,
       },
     ],
   },
