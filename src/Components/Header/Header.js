@@ -60,7 +60,7 @@ const Header = () => {
                 {user?.photoURL ? (
                   <Image
                     roundedCircle
-                    style={{ height: "50px" }}
+                    style={{ height: "40px" }}
                     src={user?.photoURL}
                   ></Image>
                 ) : (

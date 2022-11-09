@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Review = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleReview = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,6 +20,7 @@ const Review = () => {
       image: image,
       rating: rating,
       messege: messege,
+      email: user?.email,
     };
 
     fetch("http://localhost:5000/reviews", {
@@ -27,6 +32,7 @@ const Review = () => {
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
     form.reset();
+    navigate("/allreview");
   };
 
   return (
@@ -37,12 +43,22 @@ const Review = () => {
         <Form.Control
           type="text"
           name="name"
+          defaultValue={user?.displayName}
+          aria-describedby="passwordHelpBlock"
+        />
+        <Form.Label htmlFor="inputPassword5">Your Email</Form.Label>
+        <Form.Control
+          type="text"
+          name="email"
+          defaultValue={user?.email}
+          readOnly
           aria-describedby="passwordHelpBlock"
         />
         <Form.Label htmlFor="inputPassword5">Your Image</Form.Label>
         <Form.Control
           type="text"
           name="image"
+          defaultValue={user?.photoURL}
           aria-describedby="passwordHelpBlock"
         />
         <Form.Label htmlFor="inputPassword5">Rating Your experience</Form.Label>
@@ -64,14 +80,6 @@ const Review = () => {
           />
         </FloatingLabel>
         <input className="btn btn-dark mt-3" type="submit" value="Submit" />
-        <Link to="/allreview">
-          {" "}
-          <input
-            className="btn btn-dark mt-3"
-            type="submit"
-            value="See Review"
-          />
-        </Link>
       </Form>
     </div>
   );
