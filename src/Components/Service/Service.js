@@ -5,8 +5,10 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import "./Service.css";
+import useTitle from "../../hooks/useTitle";
 
 const Service = ({ service }) => {
+  useTitle("service");
   const { price, picture, rating, name, about, _id } = service;
   return (
     <div>

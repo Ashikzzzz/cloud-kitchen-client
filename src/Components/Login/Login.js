@@ -5,13 +5,14 @@ import Form from "react-bootstrap/Form";
 import { FaBeer, FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
   const { providerLogin, logIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const location = useLocation();
   const navigate = useNavigate();
-
+  useTitle("Login");
   const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {

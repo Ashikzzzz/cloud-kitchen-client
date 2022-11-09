@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Review = () => {
+  useTitle("review");
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 

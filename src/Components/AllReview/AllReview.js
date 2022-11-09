@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import useTitle from "../../hooks/useTitle";
 import "./AllReview.css";
 
 const AllReview = () => {
+  useTitle("allReview");
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/reviews")

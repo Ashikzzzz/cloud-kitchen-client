@@ -4,9 +4,11 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import Review from "../Review/Review";
 
 const ServiceDetail = () => {
+  useTitle("service-detail");
   const { user } = useContext(AuthContext);
   const service = useLoaderData();
 

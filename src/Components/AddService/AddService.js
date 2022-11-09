@@ -3,8 +3,10 @@ import { Button, FloatingLabel } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
+  useTitle("addService");
   const handleSubmitOrder = (event) => {
     event.preventDefault();
     const form = event.target;

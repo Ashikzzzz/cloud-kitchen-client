@@ -3,9 +3,11 @@ import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import "./AllServices.css";
 
 const AllServices = () => {
+  useTitle("allService");
   const [allService, setAllservice] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/servicesall")
