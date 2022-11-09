@@ -28,22 +28,26 @@ const Header = () => {
               {" "}
               AshikzZZ Kitchen
             </Link>
+            <Link className="style-H" to="/blog">
+              Blog
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto ">
-              <Link className="style-H " to="/myreview">
-                My Review
-              </Link>
-              <Link className="style-H" to="/addservice">
-                Add Service
-              </Link>
-            </Nav>
+            <Nav className="me-auto "></Nav>
             <Nav>
-              {user?.uid ? (
-                <Button onClick={handleSignOut} variant="secondary" size="sm">
-                  Log Out
-                </Button>
+              {user?.uid || user?.email ? (
+                <>
+                  <Link className="style-H " to="/myreview">
+                    My Review
+                  </Link>
+                  <Link className="style-H" to="/addservice">
+                    Add Service
+                  </Link>
+                  <Button onClick={handleSignOut} variant="dark" size="sm">
+                    Log Out
+                  </Button>
+                </>
               ) : (
                 <>
                   <Link className="style-H" to="/login">

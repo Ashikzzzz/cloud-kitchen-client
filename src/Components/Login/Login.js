@@ -3,11 +3,16 @@ import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { FaBeer, FaGoogle } from "react-icons/fa";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
   const { providerLogin, logIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -18,6 +23,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
+        form.reset();
       })
       .catch((err) => console.log(err));
   };
@@ -26,6 +33,7 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         console.log(user);
       })
       .catch((err) => console.log(err));

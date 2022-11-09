@@ -1,6 +1,7 @@
 import React from "react";
 import { CardGroup, Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import "./Service.css";
@@ -13,7 +14,11 @@ const Service = ({ service }) => {
         <Row>
           <Col>
             <Card style={{ width: "24rem" }}>
-              <Card.Img variant="top" src={picture} />
+              <PhotoProvider>
+                <PhotoView>
+                  <Card.Img variant="top" src={picture} />
+                </PhotoView>
+              </PhotoProvider>
               <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Title>Price: ${price}</Card.Title>

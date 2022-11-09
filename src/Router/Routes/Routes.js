@@ -2,9 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import AddService from "../../Components/AddService/AddService";
 import AllReview from "../../Components/AllReview/AllReview";
 import AllServices from "../../Components/AllServices/AllServices";
+import Blog from "../../Components/Blog/Blog";
 import Home from "../../Components/Home/Home";
 import Login from "../../Components/Login/Login";
 import MyReview from "../../Components/MyReview/MyReview";
+import PrivateRoute from "../../Components/PrivateRoute/PrivateRoute";
 import Register from "../../Components/Register/Register";
 import ServiceDetail from "../../Components/ServiceDetail/ServiceDetail";
 import Update from "../../Components/Update/Update";
@@ -53,8 +55,16 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/reviewsemail/${params.id}`),
       },
       {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
         path: "/myreview",
-        element: <MyReview></MyReview>,
+        element: (
+          <PrivateRoute>
+            <MyReview></MyReview>
+          </PrivateRoute>
+        ),
       },
     ],
   },
