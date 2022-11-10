@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Container, Image } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import useTitle from "../../hooks/useTitle";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import "./AllReview.css";
 
 const AllReview = () => {
@@ -19,7 +21,11 @@ const AllReview = () => {
           <Container>
             <Card style={{ width: "18rem" }}>
               <Card.Body>
-                <Image className="I-card" src={review.image} alt=""></Image>
+                <PhotoProvider>
+                  <PhotoView src={review.image} alt="">
+                    <Image className="I-card" src={review.image} alt=""></Image>
+                  </PhotoView>
+                </PhotoProvider>
                 <Card.Title>{review.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
                   {review.messege}

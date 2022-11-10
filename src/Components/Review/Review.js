@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
 const Review = () => {
   useTitle("review");
+  const serviceData = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -40,6 +41,7 @@ const Review = () => {
   return (
     <div>
       <h1 className="mt-2">Add Your Experience</h1>
+      <h3>Item name is {serviceData.name}</h3>
       <Form onSubmit={handleReview} className="w-50 mx-auto mt-5">
         <Form.Label htmlFor="inputPassword5">Your Name</Form.Label>
         <Form.Control
