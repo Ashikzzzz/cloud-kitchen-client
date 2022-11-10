@@ -17,16 +17,17 @@ const Review = () => {
     const image = form.image.value;
     const rating = form.rating.value;
     const messege = form.messege.value;
-
+    const date = new Date();
     const review = {
       name: text,
       image: image,
       rating: rating,
       messege: messege,
       email: user?.email,
+      date,
     };
 
-    fetch("http://localhost:5000/reviews", {
+    fetch(" https://cloud-kitchen-server-seven.vercel.app/reviews", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(review),

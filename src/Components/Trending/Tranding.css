@@ -1,4 +1,14 @@
 .trending img{
 width: 400px;
+}
+.trending{
+    display: grid ;
+    grid-template-columns: repeat(3, 1fr) ;
+}
 
+@media only screen and (max-width: 600px){
+    .trending{
+        display: grid !important;
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
 }

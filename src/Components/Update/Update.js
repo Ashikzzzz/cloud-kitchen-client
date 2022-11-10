@@ -25,13 +25,16 @@ const Update = () => {
       email: user?.email,
     };
 
-    fetch(`http://localhost:5000/reviewsemail/${updateData._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(review),
-    })
+    fetch(
+      ` https://cloud-kitchen-server-seven.vercel.app/reviewsemail/${updateData._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(review),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

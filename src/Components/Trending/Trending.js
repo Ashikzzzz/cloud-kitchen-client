@@ -8,7 +8,7 @@ const Trending = () => {
   return (
     <div>
       <h1 className="my-3">Trending foods</h1>
-      <div className="trending d-flex justify-content-evenly align-items-center">
+      <div className="trending ">
         <div>
           <img src={t1} alt="" />
           <h3>Wadges</h3>

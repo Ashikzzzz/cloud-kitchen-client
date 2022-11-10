@@ -23,7 +23,7 @@ const AddService = () => {
     };
     console.log(order);
 
-    fetch("http://localhost:5000/servicesall", {
+    fetch(" https://cloud-kitchen-server-seven.vercel.app/servicesall", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(order),

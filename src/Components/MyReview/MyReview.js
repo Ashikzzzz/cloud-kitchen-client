@@ -9,21 +9,32 @@ import "./MyReview.css";
 
 const MyReview = () => {
   useTitle("myReview");
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [myReviews, setmyReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviewsemail?email=${user?.email}`)
+    fetch(
+      ` https://cloud-kitchen-server-seven.vercel.app/reviewsemail?email=${user?.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("cloud-token")}`,
+        },
+      }
+    )
       .then((res) => res.json())
-      .then((data) => setmyReviews(data));
+      .then((data) => setmyReviews(data))
+      .catch((err) => console.log(err));
   }, [user?.email]);
-
+  // dlt hndle
   const handleDelete = (id) => {
     const sure = window.confirm("Are you sure to delete this review");
     if (sure) {
-      fetch(`http://localhost:5000/reviewsemail/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        ` https://cloud-kitchen-server-seven.vercel.app/reviewsemail/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -49,7 +60,7 @@ const MyReview = () => {
           return (
             <div>
               <Container>
-                <Card style={{ width: "18rem" }}>
+                <Card style={{ width: "24rem" }}>
                   <Card.Img variant="top" src="holder.js/100px180" />
                   <Card.Body>
                     <Image

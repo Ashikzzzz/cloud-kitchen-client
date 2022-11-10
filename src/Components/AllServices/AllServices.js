@@ -4,13 +4,15 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import "./AllServices.css";
 
 const AllServices = () => {
   useTitle("allService");
   const [allService, setAllservice] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/servicesall")
+    fetch(" https://cloud-kitchen-server-seven.vercel.app/servicesall")
       .then((res) => res.json())
       .then((data) => setAllservice(data));
   }, []);
@@ -23,7 +25,11 @@ const AllServices = () => {
           {allService.map((service) => {
             return (
               <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={service.picture} />
+                <PhotoProvider>
+                  <PhotoView src={service.picture} alt="">
+                    <Card.Img variant="top" src={service.picture} alt="" />
+                  </PhotoView>
+                </PhotoProvider>
                 <Card.Body>
                   <Card.Title>{service.name}</Card.Title>
                   <Card.Title>Price: ${service.price}</Card.Title>

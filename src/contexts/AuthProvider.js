@@ -43,6 +43,7 @@ const AuthProvider = ({ children }) => {
   // signout
   const logOut = () => {
     setLoading(true);
+    localStorage.removeItem("cloud-token");
     return signOut(auth);
   };
 

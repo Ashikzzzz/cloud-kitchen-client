@@ -10,7 +10,7 @@ const AllReview = () => {
   useTitle("allReview");
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(" https://cloud-kitchen-server-seven.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -19,7 +19,7 @@ const AllReview = () => {
       {reviews.map((review) => {
         return (
           <Container>
-            <Card style={{ width: "18rem" }}>
+            <Card style={{ width: "24rem" }}>
               <Card.Body>
                 <PhotoProvider>
                   <PhotoView src={review.image} alt="">

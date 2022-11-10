@@ -31,7 +31,9 @@ const router = createBrowserRouter([
         path: "/servicedetail/:id",
         element: <ServiceDetail></ServiceDetail>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/servicesall/${params.id}`),
+          fetch(
+            ` https://cloud-kitchen-server-seven.vercel.app/servicesall/${params.id}`
+          ),
       },
       {
         path: "/login",
@@ -53,13 +55,17 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <Update></Update>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviewsemail/${params.id}`),
+          fetch(
+            ` https://cloud-kitchen-server-seven.vercel.app/reviewsemail/${params.id}`
+          ),
       },
       {
         path: "/review/:id",
         element: <Review></Review>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/servicesall/${params.id}`),
+          fetch(
+            ` https://cloud-kitchen-server-seven.vercel.app/servicesall/${params.id}`
+          ),
       },
       {
         path: "/blog",
