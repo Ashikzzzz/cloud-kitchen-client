@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import "./Register.css";
 
 const Register = () => {
   useTitle("register");
@@ -22,7 +23,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="login-form w-50 mx-auto p-4 rounded login-form">
       <Form onSubmit={handleRegister} className="w-50 mx-auto mt-3">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control type="email" name="email" placeholder="Enter email" />

@@ -1,0 +1,7 @@
+
+@media only screen and (max-width: 576px) {
+    .banner-video{
+        height: 480px;
+        width: 425px;
+    }
+}

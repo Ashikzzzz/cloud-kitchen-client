@@ -14,18 +14,22 @@ const Services = () => {
   }, []);
 
   return (
-    <div>
-      <div className="mt-3">
-        <h1>Our Services</h1>
+    <div className="w-100 mx-auto ">
+      <div className="my-2 w-25 mx-auto sm:w-100">
+        <h1 className="fw-bold  text-center  text-black rounded-pill  py-2">
+          Our Services
+        </h1>
       </div>
-      <div className="card-G ">
+      <div className="card-G  w-75 mx-auto">
         {services.map((service) => (
           <Service key={service._id} service={service}></Service>
         ))}
       </div>
-      <Link to="allService">
-        <Button className="btn btn-Dark">See All Service</Button>
-      </Link>
+      <div className="mt-3">
+        <Link to="allService ">
+          <Button className="btn btn-Dark">See All Service</Button>
+        </Link>
+      </div>
     </div>
   );
 };

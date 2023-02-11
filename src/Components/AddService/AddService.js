@@ -36,7 +36,7 @@ const AddService = () => {
   };
 
   return (
-    <div>
+    <div className="w-75 mx-auto">
       <Form onSubmit={handleSubmitOrder} className="w-50 mx-auto">
         <Form.Label htmlFor="inputPassword5">Product Name</Form.Label>
         <Form.Control

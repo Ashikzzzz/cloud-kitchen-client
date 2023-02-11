@@ -56,7 +56,7 @@ const MyReview = () => {
     <div>
       <h1>You have {myReviews.length} reviews</h1>
       <div className="myReview-G">
-        {myReviews.map((myReview) => {
+        {myReviews?.map((myReview) => {
           return (
             <div>
               <Container>

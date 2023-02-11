@@ -10,15 +10,15 @@ const Trending = () => {
       <h1 className="my-3">Trending foods</h1>
       <div className="trending ">
         <div>
-          <img src={t1} alt="" />
+          <img className="rounded" src={t1} alt="" />
           <h3>Wadges</h3>
         </div>
         <div>
-          <img src={t2} alt="" />
+          <img className="rounded" src={t2} alt="" />
           <h3>Biriyani</h3>
         </div>
         <div>
-          <img src={t3} alt="" />
+          <img className="rounded" src={t3} alt="" />
           <h3>Halim</h3>
         </div>
       </div>

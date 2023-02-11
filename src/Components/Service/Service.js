@@ -15,10 +15,10 @@ const Service = ({ service }) => {
       <Container>
         <Row>
           <Col lg="3" sm="1">
-            <Card style={{ width: "24rem" }}>
+            <Card style={{ width: "18rem" }}>
               <PhotoProvider>
                 <PhotoView src={picture}>
-                  <Card.Img variant="top" src={picture} />
+                  <Card.Img className="w-100" variant="top" src={picture} />
                 </PhotoView>
               </PhotoProvider>
               <Card.Body>
