@@ -13,17 +13,19 @@ const MyReview = () => {
   const [myReviews, setmyReviews] = useState([]);
 
   useEffect(() => {
-    fetch(
-      ` https://cloud-kitchen-server-seven.vercel.app/reviewsemail?email=${user?.email}`,
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("cloud-token")}`,
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => setmyReviews(data))
-      .catch((err) => console.log(err));
+    if (user?.email) {
+      fetch(
+        ` https://cloud-kitchen-server-seven.vercel.app/reviewsemail?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("cloud-token")}`,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => setmyReviews(data))
+        .catch((err) => console.log(err));
+    }
   }, [user?.email]);
   // dlt hndle
   const handleDelete = (id) => {

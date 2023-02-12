@@ -52,8 +52,19 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
-        navigate(from, { replace: true });
-        console.log(user);
+        // console.log(user);
+        fetch(" https://cloud-kitchen-server-seven.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("cloud-token", data.token);
+            navigate(from, { replace: true });
+          });
       })
       .catch((err) => console.log(err));
   };
