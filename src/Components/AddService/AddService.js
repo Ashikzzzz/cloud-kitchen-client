@@ -1,12 +1,14 @@
 import React from "react";
 import { Button, FloatingLabel } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
   useTitle("addService");
+  const navigate = useNavigate();
   const handleSubmitOrder = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -29,7 +31,10 @@ const AddService = () => {
       body: JSON.stringify(order),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        navigate("/allService ");
+      })
       .catch((err) => console.log(err));
     toast.success("Your service is Added");
     form.reset();

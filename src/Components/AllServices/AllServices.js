@@ -14,7 +14,10 @@ const AllServices = () => {
   useEffect(() => {
     fetch(" https://cloud-kitchen-server-seven.vercel.app/servicesall")
       .then((res) => res.json())
-      .then((data) => setAllservice(data));
+      .then((data) => {
+        console.log(data);
+        setAllservice(data);
+      });
   }, []);
 
   return (
