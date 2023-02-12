@@ -22,7 +22,7 @@ const Header = () => {
     <div>
       <Navbar className="H-main" collapseOnSelect expand="lg" bg="" variant="">
         <Navbar.Brand href="#home">
-          <Image to="/" className="logo-I" src={logo} alt=""></Image>
+          {/* <Image to="/" className="logo-I" src={logo} alt=""></Image> */}
           <Link className="style-H" to="/">
             {" "}
             AshikzZZ Kitchen
@@ -39,6 +39,9 @@ const Header = () => {
               <>
                 <Link className="style-H " to="/myreview">
                   My Review
+                </Link>
+                <Link className="style-H " to="/allreview">
+                  ALL Review
                 </Link>
                 <Link className="style-H" to="/addservice">
                   Add Service
