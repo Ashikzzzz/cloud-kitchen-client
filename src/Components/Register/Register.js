@@ -47,7 +47,7 @@ const Register = () => {
 
   return (
     <div className="login-form w-50 mx-auto p-4 rounded login-form">
-      <h1>Please create an account</h1>
+      <h1 className="text-primary">Please create an account</h1>
       <Form onSubmit={handleRegister} className="w-50 mx-auto mt-3">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control type="email" name="email" placeholder="Enter email" />

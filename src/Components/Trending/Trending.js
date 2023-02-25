@@ -6,9 +6,9 @@ import "./Tranding.css";
 
 const Trending = () => {
   return (
-    <div>
+    <div className="">
       <h1 className="my-3">Trending foods</h1>
-      <div className="trending ">
+      <div className="trending">
         <div>
           <img className="rounded" src={t1} alt="" />
           <h3>Wadges</h3>
