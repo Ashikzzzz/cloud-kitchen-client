@@ -1,3 +1,9 @@
 .login-form{
     background-color: rgba(253, 249, 249, 0.803);
 }
+
+@media only screen and (max-width: 600px){
+    .login-input{
+        width: 100%;
+    }
+}

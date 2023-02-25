@@ -8,7 +8,7 @@ import Trending from "../Trending/Trending";
 const Home = () => {
   useTitle("Home");
   return (
-    <div>
+    <div className="">
       <Banner></Banner>
       <Services></Services>
       <Trending></Trending>

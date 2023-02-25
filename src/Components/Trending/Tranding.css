@@ -1,6 +1,11 @@
-.trending img{
-width: 400px;
+.trending {
+width: 80%;
+margin: 0 auto;
 }
+.trending img{
+    width: 100%;
+}
+
 .trending{
     display: grid ;
     grid-template-columns: repeat(3, 1fr) ;

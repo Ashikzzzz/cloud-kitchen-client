@@ -8,7 +8,7 @@ import Typical from "react-typical";
 const Banner = () => {
   return (
     <div>
-      <div>
+      <div className="">
         <video className="banner-video" autoPlay loop muted>
           <source src={foodVideo} type="video/mp4"></source>
         </video>
